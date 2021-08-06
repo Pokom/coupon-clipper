@@ -1,10 +1,14 @@
 {
-  "name": "shoprite-coupon-clipper",
+  "name": "coupon-clipper",
   "version": "1.0.0",
   "description": "Make coupon clipping go brr",
   "main": "index.js",
+  "engines": {
+    "node": "14.17.1",
+    "npm": "6.14.13"
+  },
   "scripts": {
-    "test": "npx playwright test"
+    "test": "node index.js"
   },
   "author": "",
   "license": "ISC",

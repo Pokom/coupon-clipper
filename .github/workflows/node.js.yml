@@ -24,7 +24,7 @@ jobs:
     - run: npm ci
     - run: npx playwright install-deps
     - run: npm run debug
-      uses: nick-invision/retry@v2.4.0
+    - uses: nick-invision/retry@v2.4.0
       with:
         max-attempts: 3
       env:

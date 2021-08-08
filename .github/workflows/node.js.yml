@@ -6,6 +6,7 @@ name: Node.js CI
 on:
   schedule:
   - cron:  "0 10 * * Sun"
+  workflow_dispatch:
   
 jobs:
   build:
@@ -22,7 +23,7 @@ jobs:
         cache: 'npm'
     - run: npm ci
     - run: npx playwright install-deps
-    - run: DEBUG=pw:api node index.js
+    - run: npm run debug
       env:
         EMAIL: ${{ secrets.EMAIL }} 
         PASSWORD: ${{ secrets.PASSWORD }}

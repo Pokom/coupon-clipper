@@ -2,9 +2,15 @@ const { firefox } = require('playwright');
 
 require('dotenv').config()
 
-const {EMAIL: email, PASSWORD: password} = process.env;
+const { EMAIL: email = "", PASSWORD: password = "" } = process.env;
 
-(async() => {
+if (email.length === 0 || password.length === 0) {
+    console.error("Username and password must be set.");
+    process.exit(1);
+}
+
+(async () => {
+    console.log(`Attempting to clip coupons for ${email}`)
     const browser = await firefox.launch();
     const page = await browser.newPage();
     await page.goto('https://coupons.shoprite.com');

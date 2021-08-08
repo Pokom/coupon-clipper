@@ -25,4 +25,7 @@ if (email.length === 0 || password.length === 0) {
         await page.click('"Ok"', { timeout: 1000 }).catch(console.error);
     }
     await browser.close();
-})();
+})().catch(error => {
+    console.error(error);
+    process.exit(1);
+});

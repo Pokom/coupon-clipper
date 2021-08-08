@@ -9,6 +9,7 @@
   },
   "scripts": {
     "debug": "DEBUG=pw:api node index.js",
+    "debug-in-browser": "HEADLESS=false npm run debug",
     "test": "node index.js"
   },
   "author": "",

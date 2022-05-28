@@ -12,7 +12,10 @@ if (email.length === 0 || password.length === 0) {
 (async () => {
     console.log(`Attempting to clip coupons for ${email}`)
     const browser = await firefox.launch({ headless: headless === "true" });
-    const page = await browser.newPage();
+    const context = await browser.newContext({
+        userAgent: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.135 Safari/537.36"
+    })
+    const page = await context.newPage();
     await page.goto('https://coupons.shoprite.com');
     await page.click('.login-to-load')
     await page.fill('input[name="Email"]', email);
